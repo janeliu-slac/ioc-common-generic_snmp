@@ -1,0 +1,19 @@
+record(longout, "$(IOC):$(RATE)_PERIOD") {
+    field(VAL,  "$(PERIOD)")
+    field(PINI, "YES")
+}
+
+record(calcout, "$(IOC):$(RATE)_COUNT") {
+    field(INPA, "$(IOC):$(RATE)_COUNT NPP NMS")
+    field(INPB, "$(IOC):$(RATE)_PERIOD NPP NMS")
+    field(CALC, "(A+1)%B")
+    field(OOPT, "When Zero")
+    field(DOPT, "Use OCAL")
+    field(OUT,  "$(IOC):$(RATE)_EVENT.PROC")
+}
+
+record(event, "$(IOC):$(RATE)_EVENT") {
+    field(SCAN, "Passive")
+    field(VAL,  "$(EVENT)")
+}
+

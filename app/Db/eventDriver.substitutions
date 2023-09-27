@@ -1,0 +1,8 @@
+file eventDriver.template
+{
+    pattern
+    { IOC,    RATE, PERIOD,         EVENT }
+    { $(IOC), FAST, $(FAST_PERIOD),   2 }
+    { $(IOC), MED,  $(MED_PERIOD),    3 }
+    { $(IOC), SLOW, $(SLOW_PERIOD),   4 }
+}

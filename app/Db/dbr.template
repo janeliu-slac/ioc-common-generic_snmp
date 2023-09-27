@@ -1,0 +1,16 @@
+record($$IF(TYPE,INT)longin$$ENDIF(TYPE)$$IF(TYPE,FLOAT)ai$$ENDIF(TYPE)$$IF(TYPE,STRING)stringin$$ENDIF(TYPE), $(BASE):$$(NAME)_RBV) {
+    field(DTYP, "SnmpV2c")
+    field(INP,  "@$(HOST) $(COMM) $$MIBBASE::$$MIB")
+$$IF(EGU)
+    field(EGU,  "$$EGU")
+$$ENDIF(EGU)
+$$IF(PREC)
+    field(PREC,  "$$PREC")
+$$ENDIF(PREC)
+    field(EVNT,  "$$IF(RATE)$($$(RATE)_EVENT)$$ELSE(RATE)$(DEFAULT_EVENT)$$ENDIF(RATE)")
+    field(SCAN,  "$$IF(NOWALK)Event$$ELSE(NOWALK)$(WALK)$$ENDIF(NOWALK)")
+$$IF(INIT)
+    field(INIT,  "YES")
+$$ENDIF(INIT)
+}
+

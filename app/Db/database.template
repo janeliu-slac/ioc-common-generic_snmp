@@ -1,0 +1,8 @@
+$$LOOP(PV)
+$$IF(DIR,WO)$$INCLUDE(../dbw.template)$$ENDIF(DIR)$$IF(DIR,RW)$$INCLUDE(../dbw.template)$$ENDIF(DIR)
+$$IF(DIR,RO)$$INCLUDE(../dbr.template)$$ENDIF(DIR)$$IF(DIR,RW)$$INCLUDE(../dbr.template)$$ENDIF(DIR)$$IF(DIR)$$ELSE(DIR)$$INCLUDE(../dbr.template)$$ENDIF(DIR)
+$$ENDLOOP(PV)
+
+$$LOOP(EXTRA)
+$$IF(DB)$$INCLUDE $$DB$$ENDIF(DB)
+$$ENDLOOP(EXTRA)

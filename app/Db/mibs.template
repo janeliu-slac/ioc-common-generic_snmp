@@ -1,0 +1,3 @@
+$$LOOP(MIBFILE)
+read_mib( "$(TOP)/mibs/$$FILE" )
+$$ENDLOOP(MIBFILE)

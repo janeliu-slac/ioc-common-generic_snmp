@@ -1,0 +1,15 @@
+record($$IF(TYPE,INT)longout$$ENDIF(TYPE)$$IF(TYPE,FLOAT)ao$$ENDIF(TYPE)$$IF(TYPE,STRING)stringout$$ENDIF(TYPE), $(BASE):$$NAME) {
+    field(DTYP, "SnmpV2c")
+    field(OUT,  "@$(HOST) $(COMM) $$MIBBASE::$$MIB")
+$$IF(EGU)
+    field(EGU,  "$$EGU")
+$$ENDIF(EGU)
+$$IF(PREC)
+    field(PREC,  "$$PREC")
+$$ENDIF(PREC)
+    field(SCAN,  "Passive")
+$$IF(AUTOSAVE)
+    info(autosaveFields, "VAL")
+$$ENDIF(AUTOSAVE)
+}
+
