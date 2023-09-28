@@ -4,5 +4,5 @@ $$IF(DIR,RO)$$INCLUDE(../dbr.template)$$ENDIF(DIR)$$IF(DIR,RW)$$INCLUDE(../dbr.t
 $$ENDLOOP(PV)
 
 $$LOOP(EXTRA)
-$$IF(DB)$$INCLUDE $$DB$$ENDIF(DB)
+$$IF(DB)$$INCLUDE(../$$DB)$$ENDIF(DB)
 $$ENDLOOP(EXTRA)

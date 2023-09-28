@@ -10,7 +10,7 @@ $$ENDIF(PREC)
     field(EVNT,  "$$IF(RATE)$($$(RATE)_EVENT)$$ELSE(RATE)$(DEFAULT_EVENT)$$ENDIF(RATE)")
     field(SCAN,  "$$IF(NOWALK)Event$$ELSE(NOWALK)$(WALK)$$ENDIF(NOWALK)")
 $$IF(INIT)
-    field(INIT,  "YES")
+    field(PINI,  "YES")
 $$ENDIF(INIT)
 }
 
