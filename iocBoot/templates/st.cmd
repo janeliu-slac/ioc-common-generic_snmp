@@ -47,7 +47,7 @@ snmpMaxVarsPerMsg( $$IF(SNMP_MAX_PER_QUERY,$$SNMP_MAX_PER_QUERY,30) )
 # Load soft ioc related record instances
 dbLoadRecords( "db/iocSoft.db",	   "IOC=$(IOC_PV)" )
 dbLoadRecords( "db/iocRelease.db", "IOC=$(IOC_PV)" )
-dbLoadRecords( "db/eventDriver.db, "IOC=$(IOC_PV),SLOW_PERIOD=$$IF(SLOW_PERIOD,$$SLOW_PERIOD,60),MED_PERIOD=$$IF(MED_PERIOD,$$MED_PERIOD,5),FAST_PERIOD=$$IF(FAST_PERIOD,$$FAST_PERIOD,1)")
+dbLoadRecords( "db/eventDriver.db", "IOC=$(IOC_PV),SLOW_PERIOD=$$IF(SLOW_PERIOD,$$SLOW_PERIOD,60),MED_PERIOD=$$IF(MED_PERIOD,$$MED_PERIOD,5),FAST_PERIOD=$$IF(FAST_PERIOD,$$FAST_PERIOD,1)")
 
 $$LOOP(SNMP_DEVICE)
 dbLoadRecords("db/$$TYPE.db","BASE=$$BASE,HOST=$$HOST,COMM=$$COMM,WALK=$$IF(WALK,I/O Intr,Event),FAST_EVENT=$(FAST_EVENT),MED_EVENT=$(MED_EVENT),SLOW_EVENT=$(SLOW_EVENT),DEFAULT_EVENT=$(DEFAULT_EVENT)$$IF(IDX),IDX=$$IDX$$ENDIF(IDX)")
