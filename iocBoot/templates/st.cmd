@@ -54,9 +54,13 @@ dbLoadRecords("db/$$TYPE.db","BASE=$$BASE,HOST=$$HOST,COMM=$$COMM,WALK=$$IF(WALK
 $$ENDLOOP(SNMP_DEVICE)
 
 # Read the mib files
-read_mib( "$(TOP)/mibs/SNMPv2-SMI.txt" )  # These must be before Snmp2cWalk!
-read_mib( "$(TOP)/mibs/SNMPv2-TC.txt" )
-read_mib( "$(TOP)/mibs/SNMPv2-MIB.txt" )
+read_mib( "/usr/share/snmp/mibs/SNMPv2-SMI.txt" )  # These must be before Snmp2cWalk!
+read_mib( "/usr/share/snmp/mibs/SNMPv2-TC.txt" )
+read_mib( "/usr/share/snmp/mibs/SNMPv2-MIB.txt" )
+read_mib( "/usr/share/snmp/mibs/INET-ADDRESS-MIB.txt" )
+$$LOOP(SNMP_DEVICE)
+epicsEnvSet( "$$(TYPE)_MIBS", "" )
+$$ENDLOOP(SNMP_DEVICE)
 $$LOOP(SNMP_DEVICE)
 $($$(TYPE)_MIBS) < $(TOP)/db/$$(TYPE)_mibs.db
 epicsEnvSet( "$$(TYPE)_MIBS", "#" )
