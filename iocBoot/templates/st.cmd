@@ -1,4 +1,4 @@
-#!$$IOCTOP/bin/$$TARGET_ARCH/snmp
+#!$$IOCTOP/bin/$$IF(ARCH,$$ARCH,rhel7-x86_64)/snmp
 
 # Run common startup commands for linux soft IOC's
 < $(IOC_COMMON)/All/pre_linux.cmd
@@ -50,7 +50,7 @@ dbLoadRecords( "db/iocRelease.db", "IOC=$(IOC_PV)" )
 dbLoadRecords( "db/eventDriver.db, "IOC=$(IOC_PV),SLOW_PERIOD=$$IF(SLOW_PERIOD,$$SLOW_PERIOD,60),MED_PERIOD=$$IF(MED_PERIOD,$$MED_PERIOD,5),FAST_PERIOD=$$IF(FAST_PERIOD,$$FAST_PERIOD,1))
 
 $$LOOP(SNMP_DEVICE)
-dbLoadRecords("db/$$TYPE.db",BASE=$$BASE,HOST=$$HOST,COMM=$$COMM,WALK=$$IF(WALK,I/O Intr,Event),FAST_EVENT=$(FAST_EVENT),MED_EVENT=$(MED_EVENT),SLOW_EVENT=$(SLOW_EVENT),DEFAULT_EVENT=$(DEFAULT_EVENT))
+dbLoadRecords("db/$$TYPE.db",BASE=$$BASE,HOST=$$HOST,COMM=$$COMM,WALK=$$IF(WALK,I/O Intr,Event),FAST_EVENT=$(FAST_EVENT),MED_EVENT=$(MED_EVENT),SLOW_EVENT=$(SLOW_EVENT),DEFAULT_EVENT=$(DEFAULT_EVENT)$$IF(IDX),IDX=$$IDX$$ENDIF(IDX))
 $$ENDLOOP(SNMP_DEVICE)
 
 # Read the mib files
