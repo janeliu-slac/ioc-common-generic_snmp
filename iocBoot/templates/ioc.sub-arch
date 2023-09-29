@@ -13,6 +13,6 @@ file archive_SR.tpl-arch
 $$LOOP(SNMP_DEVICE)
 file $$(TYPE).archive
 {
-    { BASE = "$$BASE" }
+    { BASE = "$$BASE"$$IF(IDX), IDX="$$IDX"$$ENDIF(IDX) }
 }
 $$ENDLOOP(SNMP_DEVICE)
