@@ -6,9 +6,9 @@ include $(TOP)/RELEASE_SITE
 # Define the version of modules needed by
 # IOC apps or other Support apps
 # ===============================================================
-AUTOSAVE_MODULE_VERSION		= R5.8-2.1.0
-IOCADMIN_MODULE_VERSION		= R3.1.16-1.3.2
-SNMP_MODULE_VERSION		= R2.5
+AUTOSAVE_MODULE_VERSION = R5.11-2.0.0
+IOCADMIN_MODULE_VERSION = R3.1.16-1.4.0
+SNMP_MODULE_VERSION = R2.6
 
 # ============================================================
 # External Support module path definitions
