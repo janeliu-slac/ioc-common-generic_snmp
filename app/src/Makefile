@@ -35,6 +35,11 @@ snmp_LIBS += devSnmp
 snmp_LIBS += caPutLog
 snmp_LIBS += $(EPICS_BASE_IOC_LIBS)
 
+# If the line below existed, it would mean the PCRE library is dynamically linked. This is because 
+# configure/CONFIG_SITE shows STATIC_BUILD = NO and LCLS Rocky9 hosts provide the shared PCRE 
+# library, libpcre.so.
+PROD_SYS_LIBS_DEFAULT += pcre
+
 SYS_LIBS	+= crypto
 
 #===========================
